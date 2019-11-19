@@ -31,14 +31,14 @@ def phit(k, t, sk, phi0, m):
     return phi(k, sk, phi0) * np.exp(-1j * w * t)
 
 
-def phixt(x, t, sk, phi0, m):
+def phixt(x, t, sx, phi0, m):
     # hbar = 1
-    return phi0 * np.exp(x ** 2 / (4 * (1 / (4 * sk) + 1j * t / (2 * m)) ** 2)) / np.sqrt(2)
+    return phi0 * np.exp(x ** 2 / (4 * (sx + 1j * t / (2 * m)) ** 2)) / np.sqrt(2)
 
 
-def sigmat(t, sk, m):
+def sigmat(t, sx, m):
     # hbar = 1
-    return np.sqrt(2) * (1 / (4 * sk) + 1j * t / (2 * m))
+    return np.sqrt(2) * (sx + 1j * t / (2 * m))
 
 
 def main(argv: list) -> int:
@@ -99,7 +99,7 @@ def main(argv: list) -> int:
 
     t = np.linspace(0, 5, 10000)
 
-    sig = sigmat(t, sk, m)
+    sig = sigmat(t, sx, m)
 
     axes[0].plot(t, np.abs(sig))
     axes[0].set_title("Betrag")
@@ -124,7 +124,7 @@ def main(argv: list) -> int:
     x = np.linspace(-3, 3, 10000)
 
     for t in range(0, 6, 2):
-        psi = phixt(x, t, sk, phik0, m)
+        psi = phixt(x, t, sx, phik0, m)
         axes[0].plot(x, np.abs(psi), label=f"t = {t}")
         axes[0].set_title("Betrag")
         axes[1].plot(x, phase(psi), label=f"t = {t}")

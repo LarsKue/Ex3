@@ -46,6 +46,7 @@ def main(argv: list) -> int:
         plt.title(f"<{n}, {l}, {m} | {n}, {l}, {m}>")
         plt.xlabel("x")
         plt.ylabel("y")
+        plt.savefig(f"{n}{l}{m}.png")
         plt.show()
 
     return 0

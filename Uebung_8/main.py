@@ -8,6 +8,8 @@ from scipy import constants as consts
 from scipy.special import hermite
 from scipy.integrate import quad
 
+from utils import *
+
 consts.hbar = 1
 
 

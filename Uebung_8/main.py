@@ -37,6 +37,14 @@ def sp_xQ(x, t, m, w):
     return np.exp(-1j * t * w / 2) / np.sqrt(2) * psi(x, 0, m, w) + np.exp(-5j * t * w / 2) / np.sqrt(2) * psi(x, 2, m, w)
 
 
+def EW_x(t, w):
+    return (3 + np.sqrt(2) * np.cos(2 * w * t))
+
+
+def EW_p(t, w):
+    return (3j - np.sqrt(2) * np.cos(2 * w * t))
+
+
 def main(argv: list) -> int:
 
     x = np.linspace(-4, 4, 5000)
@@ -72,10 +80,6 @@ def main(argv: list) -> int:
 
         plt.clf()
         plt.close()
-
-
-
-
 
     return 0
 

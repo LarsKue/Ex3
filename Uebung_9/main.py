@@ -41,7 +41,7 @@ def main(argv: list) -> int:
         psi = get_psi(n, l, m)
 
         plt.figure(figsize=(10, 8))
-        im = plt.imshow(np.abs(psi(*ctos(x, y, 0))) ** 2, cmap="gist_heat", extent=[xmin, xmax, ymin, ymax])
+        im = plt.imshow(np.abs(psi(*ctos(x, y, 0))) ** 2, cmap="gist_heat", extent=[xmin, xmax, ymin, ymax], origin="lower")
         plt.colorbar(im, fraction=0.046, pad=0.03)
         plt.title(f"<{n}, {l}, {m} | {n}, {l}, {m}>")
         plt.xlabel("x")

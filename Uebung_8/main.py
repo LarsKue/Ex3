@@ -50,8 +50,7 @@ def main(argv: list) -> int:
     x = np.linspace(-4, 4, 5000)
     m = w = 1  # we use normed values
 
-    i = 0
-    for t in np.linspace(0, 2, 600):
+    for i, t in enumerate(np.linspace(0, 2, 600)):
         y1 = sp_xD(x, t * np.pi, m, w)
         y2 = sp_xQ(x, t * np.pi, m, w)
         fig = plt.figure(figsize=(19.2, 10.8), dpi=100)
@@ -76,7 +75,6 @@ def main(argv: list) -> int:
 
         plt.savefig(f"images/{i}.png")
         print(i)
-        i += 1
 
         plt.clf()
         plt.close()
